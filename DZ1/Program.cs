@@ -22,11 +22,11 @@
 
             while (true) // ввод строки
             {
-                Console.WriteLine("Введите строку до 44 символов");
+                Console.WriteLine("Введите строку до 40 символов");
                 stroka = Console.ReadLine();
                 if (stroka != null) longString = stroka.Length;
 
-                if ((longString > 0) & (longString < 45)) break;
+                if ((longString > 0) & (longString < 41)) break;
             }
 
             int allLongString = chislo * 2 - 2 + longString;
@@ -42,25 +42,25 @@
                 switch (i)
                 {
                     case 1:
-                        cell1(stroka, allLongString, chislo);
+                        Сell1(stroka, allLongString, chislo);
                         break;
                     case 3:
-                        cell2(allLongString, chislo);
+                        Сell2(allLongString, chislo);
                         break;
                     case 5:
-                        cell3(allLongString, chislo);
+                        Сell3(allLongString);
                         break;
                     default:
                         Console.WriteLine(borderPlus);
                         break;
-
                 }
 
             }
-
+            Console.ReadLine();
         }
 
-        private static void cell1 (string stroka, int allLongString, int chislo)
+
+        private static void Сell1 (string stroka, int allLongString, int chislo)
         {
             string borderNull = ""; // создание пустой строки
             for (int i = 0; i < allLongString; i++)
@@ -85,7 +85,7 @@
             }
         }
 
-        private static void cell2 (int allLongString, int chislo)
+        private static void Сell2 (int allLongString, int chislo)
         {
             string stroka1 = "", stroka2 = "";
             int marker = 0;
@@ -105,6 +105,7 @@
                     marker = 0;
                 }
             }   
+
             stroka1 = "+" + stroka1 + "+";
             stroka2 = "+" + stroka2 + "+";
 
@@ -117,7 +118,7 @@
             }
         }
 
-        private static void cell3(int allLongString, int chislo)
+        private static void Сell3(int allLongString)
         {
             string[] cell3 = new string[allLongString];
 
@@ -146,6 +147,6 @@
             }
         }
 
-
+        
     }
 }
