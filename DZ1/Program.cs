@@ -6,28 +6,12 @@
         {
             int chislo = 0;
 
-            while (true) // ввод числа
-           {
-                Console.WriteLine("Введите число от 1 до 6");
-                string text = Console.ReadLine();
-                if (int.TryParse(text, out chislo)) 
-                {
-                    chislo = int.Parse(text);
-                    if ((chislo > 0) & (chislo<7)) break;
-                }
-           }
+            ReadChislo( ref chislo);
 
-            string stroka;
+            string stroka = "";
             int longString =0;
 
-            while (true) // ввод строки
-            {
-                Console.WriteLine("Введите строку до 40 символов");
-                stroka = Console.ReadLine();
-                if (stroka != null) longString = stroka.Length;
-
-                if ((longString > 0) & (longString < 41)) break;
-            }
+            ReadStroka(ref stroka, ref longString);
 
             int allLongString = chislo * 2 - 2 + longString;
 
@@ -147,6 +131,32 @@
             }
         }
 
+        private static void ReadChislo(ref int chislo)
+        {
+            while (true) // ввод числа
+            {
+                Console.WriteLine("Введите число от 1 до 6");
+                string text = Console.ReadLine();
+                if (int.TryParse(text, out chislo))
+                {
+                    if ((chislo > 0) & (chislo < 7)) break;
+                }
+            }
+            //return chislo;
+        }
+
+        private static void ReadStroka(ref string stroka,ref int longString)
+        {
+            while (true) // ввод строки
+            {
+                Console.WriteLine("Введите строку до 40 символов");
+                stroka = Console.ReadLine();
+                if (stroka != null) longString = stroka.Length;
+
+                if ((longString > 0) & (longString < 41)) break;
+            }
+            //return longString;
+        }
         
     }
 }
